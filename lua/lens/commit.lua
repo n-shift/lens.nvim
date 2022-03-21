@@ -2,13 +2,10 @@ local _2afile_2a = "fnl\\lens\\commit.fnl"
 local i = vim.api
 local s = require("lens.splits")
 local storage = {}
-local function create()
-  return i.nvim_create_buf(false, true)
-end
 local function open()
-  local bufnr = create()
-  vim.cmd(("vertical sbuffer " .. bufnr))
-  do end (storage)["bufnr"] = bufnr
+  local nrs = s.left(15, true)
+  vim.cmd(("vertical sbuffer " .. nrs.bufnr))
+  do end (storage)["bufnr"] = nrs.bufnr
   return nil
 end
 local function close()
