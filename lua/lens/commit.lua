@@ -1,5 +1,6 @@
 local _2afile_2a = "fnl\\lens\\commit.fnl"
 local i = vim.api
+local s = require("lens.splits")
 local storage = {}
 local function create()
   return i.nvim_create_buf(false, true)

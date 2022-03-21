@@ -1,12 +1,11 @@
 (local i vim.api)
+(local s (require :lens.splits))
 (local storage {})
-(fn create []
-  (i.nvim_create_buf false true))
 
 (fn open []
-  (local bufnr (create))
-  (vim.cmd (.. "vertical sbuffer "bufnr))
-  (tset storage :bufnr bufnr)
+  (local nrs (s.left 15 true))
+  (vim.cmd (.. "vertical sbuffer " nrs.bufnr))
+  (tset storage :bufnr nrs.bufnr)
 )
 
 (fn close []
